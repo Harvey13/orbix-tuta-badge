@@ -52,8 +52,20 @@ const els = {
   saveStatus: document.getElementById('saveStatus')
 };
 
+// === AFFICHAGE DE LA VERSION ===
+function displayAppVersion() {
+  const versionEl = document.getElementById('appVersion');
+  if (versionEl && ORBIX_CONFIG?.version) {
+    versionEl.textContent = ORBIX_CONFIG.version;
+  }
+  
+  // Optionnel : mettre à jour le titre de la page
+  document.title = `Orbix v${ORBIX_CONFIG.version || '0.1.0'}`;
+}
+
 // === INITIALISATION ===
 function init() {
+  displayAppVersion();
   loadSettings();
   bindUI();
   registerServiceWorker();
@@ -389,37 +401,28 @@ function updateBadge(count) {
   }
 }
 
-// === API TUTA (SIMULATION) ===
+const BACKEND_URL = 'https://orbix-tuta-proxy.onrender.com';
+
 async function fetchTutaUnreadCount(email, password) {
-  // ⚠️ IMPORTANT: Cette fonction doit être remplacée par un appel API réel
-  // Tuta ne permet pas l'accès direct depuis le navigateur pour des raisons de sécurité
-  
   if (!email || !password) {
     throw new Error('Identifiants manquants');
   }
-  
-  // Simulation de latence réseau
-  await new Promise(resolve => setTimeout(resolve, 500 + Math.random() * 500));
-  
-  // Simulation de réponse (à remplacer par un vrai appel API)
-  // En production, utilisez un proxy backend sécurisé
-  const simulatedCount = Math.floor(Math.random() * 8);
-  
-  console.log(`📡 Requête simulée pour ${email}: ${simulatedCount} mails`);
-  return simulatedCount;
-  
-  /*
-  // Exemple d'implémentation réelle (nécessite un backend):
-  const response = await fetch('https://your-backend.com/api/tuta/unread', {
+
+  const response = await fetch(`${BACKEND_URL}/api/unread`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, password })
+    body: JSON.stringify({ email, password }),
+    signal: AbortSignal.timeout(10000) // 10s timeout
   });
-  
-  if (!response.ok) throw new Error('Erreur de connexion');
+
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}));
+    throw new Error(errorData.details || `Erreur serveur (${response.status})`);
+  }
+
   const data = await response.json();
-  return data.unreadCount;
-  */
+  console.log(`📬 Backend: ${data.unread} mails (cache: ${data.fromCache})`);
+  return data.unread;
 }
 
 // === SERVICE WORKER ===

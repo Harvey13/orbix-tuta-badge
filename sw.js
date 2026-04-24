@@ -1,5 +1,5 @@
 // === SERVICE WORKER ORBIX ===
-const CACHE_NAME = 'orbix-v1.0.0';
+const CACHE_NAME = `orbix-v${ORBIX_CONFIG?.version || '0.1.0'}`;
 const ASSETS_TO_CACHE = [
   './',
   './index.html',

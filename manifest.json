@@ -1,6 +1,7 @@
 {
   "name": "Orbix",
   "short_name": "Orbix",
+  "version": "0.1.0",
   "description": "Application web installable qui vérifie périodiquement le nombre de mails non lus sur un compte Tuta et affiche ce nombre dans un badge sur l'icône de l'application.",
   "start_url": "./index.html",
   "display": "standalone",
