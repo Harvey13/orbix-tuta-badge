@@ -1,20 +1,42 @@
+/* ===================================
+   ORBIX - Feuille de style officielle
+   Charte graphique v1.0.0
+   =================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap');
+
 :root {
-  --bg: #f8f9fa;
+  /* Palette de couleurs officielle Orbix */
+  --color-primary: #5E0F2F;
+  --color-secondary: #8E2A5B;
+  --color-pink: #D88AA7;
+  --color-light-pink: #F3D7DE;
+  --color-off-white: #FFF6F7;
+  --color-gray-purple: #6E6377;
+  
+  /* Dégradés */
+  --gradient-primary: linear-gradient(135deg, #5E0F2F 0%, #8E2A5B 100%);
+  --gradient-secondary: linear-gradient(135deg, #8E2A5B 0%, #D88AA7 100%);
+  
+  /* Couleurs fonctionnelles */
+  --bg: var(--color-off-white);
   --card: #ffffff;
-  --primary: #8b1a4a;
-  --primary-light: #b32a5e;
-  --text: #1a1a1a;
-  --muted: #666;
-  --border: #e0e0e0;
+  --text: var(--color-primary);
+  --text-muted: var(--color-gray-purple);
+  --border: var(--color-light-pink);
   --success: #2e7d32;
   --error: #c62828;
-  --shadow: rgba(139, 26, 74, 0.15);
+  --shadow: rgba(94, 15, 47, 0.15);
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
 
 body { 
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: var(--bg); 
   color: var(--text); 
   padding: 0;
@@ -22,14 +44,18 @@ body {
   max-width: 600px; 
   margin: auto;
   min-height: 100vh;
+  font-weight: 400;
+  line-height: 1.6;
 }
 
-/* Header */
+/* ===================================
+   HEADER
+   =================================== */
 header {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-  color: white;
-  padding: 24px 20px;
-  box-shadow: 0 2px 12px var(--shadow);
+  background: var(--gradient-primary);
+  color: var(--color-off-white);
+  padding: 32px 20px;
+  box-shadow: 0 4px 16px var(--shadow);
 }
 
 .header-content {
@@ -39,51 +65,57 @@ header {
 }
 
 .app-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 12px;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
   object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 header h1 { 
-  font-size: 1.75rem;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: 600;
   margin: 0;
+  letter-spacing: -0.5px;
 }
 
 .subtitle { 
-  color: rgba(255, 255, 255, 0.9); 
-  font-size: 0.95rem; 
+  color: var(--color-pink);
+  font-size: 1rem; 
   margin-top: 4px;
   font-weight: 400;
 }
 
-/* Main content */
+/* ===================================
+   MAIN CONTENT
+   =================================== */
 main { 
-  padding: 20px 16px;
+  padding: 24px 16px;
 }
 
 .card { 
   background: var(--card); 
-  border-radius: 16px; 
-  padding: 20px; 
-  margin-bottom: 20px; 
+  border-radius: 20px; 
+  padding: 24px; 
+  margin-bottom: 24px; 
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  border: 1px solid rgba(139, 26, 74, 0.05);
+  border: 1px solid var(--border);
 }
 
 .card h2 { 
-  font-size: 1.15rem; 
-  margin-bottom: 16px; 
+  font-size: 1.25rem; 
+  margin-bottom: 20px; 
   padding-bottom: 12px;
-  border-bottom: 2px solid var(--bg);
-  color: var(--primary);
+  border-bottom: 2px solid var(--color-light-pink);
+  color: var(--color-secondary);
   font-weight: 600;
 }
 
-/* Form fields */
+/* ===================================
+   FORM FIELDS
+   =================================== */
 .field { 
-  margin-bottom: 18px; 
+  margin-bottom: 20px; 
 }
 
 .field label { 
@@ -91,45 +123,50 @@ main {
   font-weight: 600; 
   margin-bottom: 8px; 
   font-size: 0.95rem;
-  color: var(--text);
+  color: var(--color-primary);
 }
 
 .field input, 
 .field select, 
 .field textarea { 
   width: 100%; 
-  padding: 12px 14px; 
+  padding: 12px 16px; 
   border: 2px solid var(--border); 
-  border-radius: 10px; 
+  border-radius: 12px; 
   font-size: 0.95rem;
-  transition: all 0.2s ease;
-  font-family: inherit;
+  transition: all 0.3s ease;
+  font-family: 'Manrope', sans-serif;
+  background: var(--color-off-white);
+  color: var(--text);
 }
 
 .field input:focus,
 .field select:focus,
 .field textarea:focus {
   outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(139, 26, 74, 0.1);
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 4px rgba(142, 42, 91, 0.1);
+  background: #ffffff;
 }
 
 .field.checkbox { 
   display: flex; 
   align-items: flex-start; 
-  gap: 10px;
+  gap: 12px;
   padding: 8px 0;
 }
 
 .field.checkbox input {
   width: auto;
   margin-top: 4px;
+  cursor: pointer;
 }
 
 .field.checkbox label { 
   margin: 0; 
   font-weight: 500;
   cursor: pointer;
+  color: var(--text);
 }
 
 .row { 
@@ -143,29 +180,32 @@ main {
 }
 
 .row span {
-  color: var(--muted);
+  color: var(--text-muted);
   font-weight: 500;
 }
 
-/* Buttons */
+/* ===================================
+   BUTTONS
+   =================================== */
 button { 
-  background: var(--primary); 
-  color: white; 
+  background: var(--gradient-primary);
+  color: var(--color-off-white); 
   border: none; 
-  padding: 12px 20px; 
-  border-radius: 10px; 
+  padding: 14px 24px; 
+  border-radius: 12px; 
   cursor: pointer; 
   font-size: 1rem;
   font-weight: 600;
   margin-top: 8px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   width: 100%;
+  font-family: 'Manrope', sans-serif;
+  box-shadow: 0 4px 12px rgba(94, 15, 47, 0.3);
 }
 
 button:hover:not(:disabled) { 
-  background: var(--primary-light);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px var(--shadow);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(94, 15, 47, 0.4);
 }
 
 button:active:not(:disabled) {
@@ -178,16 +218,17 @@ button:disabled {
 }
 
 #testBtn { 
-  background: #5c6bc0;
+  background: var(--gradient-secondary);
   margin-bottom: 12px;
+  box-shadow: 0 4px 12px rgba(142, 42, 91, 0.3);
 }
 
 #testBtn:hover:not(:disabled) {
-  background: #3f51b5;
+  box-shadow: 0 6px 20px rgba(142, 42, 91, 0.4);
 }
 
 .actions { 
-  margin-top: 24px;
+  margin-top: 28px;
   text-align: center;
 }
 
@@ -195,33 +236,39 @@ button:disabled {
   max-width: 300px;
 }
 
-/* Status messages */
+/* ===================================
+   STATUS MESSAGES
+   =================================== */
 .status { 
   font-size: 0.9rem; 
   margin-top: 12px; 
   min-height: 22px;
-  padding: 8px 12px;
-  border-radius: 8px;
+  padding: 10px 16px;
+  border-radius: 10px;
   font-weight: 500;
 }
 
 .status.success { 
   color: var(--success);
   background: rgba(46, 125, 50, 0.1);
+  border: 1px solid rgba(46, 125, 50, 0.2);
 }
 
 .status.error { 
   color: var(--error);
   background: rgba(198, 40, 40, 0.1);
+  border: 1px solid rgba(198, 40, 40, 0.2);
 }
 
-/* App info */
+/* ===================================
+   APP INFO
+   =================================== */
 .app-info {
   text-align: center;
-  margin-top: 32px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
-  color: var(--muted);
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 2px solid var(--color-light-pink);
+  color: var(--text-muted);
   font-size: 0.85rem;
 }
 
@@ -234,33 +281,38 @@ button:disabled {
   opacity: 0.8;
 }
 
-/* Small text */
+/* ===================================
+   SMALL TEXT
+   =================================== */
 small { 
-  color: var(--muted); 
+  color: var(--text-muted); 
   display: block; 
   margin-top: 6px;
   font-size: 0.85rem;
-  line-height: 1.4;
+  line-height: 1.5;
+  font-weight: 400;
 }
 
-/* Responsive */
+/* ===================================
+   RESPONSIVE
+   =================================== */
 @media (max-width: 480px) {
   header {
-    padding: 20px 16px;
+    padding: 24px 16px;
   }
   
   .app-icon {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
   }
   
   header h1 {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
   
   .card {
-    padding: 16px;
-    border-radius: 12px;
+    padding: 20px;
+    border-radius: 16px;
   }
   
   .row {
@@ -269,12 +321,26 @@ small {
   }
 }
 
-/* Animations */
+/* ===================================
+   ANIMATIONS
+   =================================== */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { 
+    opacity: 0; 
+    transform: translateY(12px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
 }
 
 .card {
-  animation: fadeIn 0.3s ease-out;
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* Hover effects on cards */
+.card:hover {
+  box-shadow: 0 4px 20px rgba(94, 15, 47, 0.1);
+  transition: box-shadow 0.3s ease;
 }
