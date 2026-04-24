@@ -1,0 +1,84 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist*/
+dist
+dist-ssr
+dist-harvey
+dist-pignada
+dist-local
+dist-felix
+*.local
+build_output
+dev-dist
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Backup and copy files
+*.bak
+*.copy
+*copy*
+*backup*
+
+# Local Netlify folder
+.netlify
+/Recup Photos/vignettes
+/Recup Photos/Pétanque Pignada d_Ornon
+/public/vignettes
+
+# Electron build
+dist_electron/
+dist_electron/*
+**/dist_electron/**
+builder-debug.yml
+win-unpacked/
+**/win-unpacked/**
+*.exe
+*.asar
+# Build output
+/release/
+/release/*
+
+
+# env files
+.env.harvey
+.env.harvey.admin
+.env.pignada
+.env.pignada.admin
+
+
+/src/components/TeamManagement - Copie.tsx
+/src/components/BirthdayView - Copie (2).tsx
+/src/components/BirthdayView - Copie (3).tsx
+/src/components/BirthdayView - Copie.tsx
+/src/components/MemberCard - Copie.tsx
+/src/components/MemberManagement - BAD TEAM.tsx
+/src/components/MemberManagement - Copie.tsx
+/src/components/MemberManagement - liste ok.tsx
+/src/components/MemberManagement - OK.tsx
+/src/components/MemberManagement - selection ok.tsx
+/src/components/MemberManagement test.tsx
+/*.admin
+/*.felix
+/dist-pignada

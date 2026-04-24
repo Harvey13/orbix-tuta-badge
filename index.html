@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#8b1a4a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Orbix">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Orbix - Paramètres</title>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <img src="icon-192.png" alt="Orbix" class="app-icon">
+      <div>
+        <h1>Orbix</h1>
+        <p class="subtitle">Badge de mails Tuta</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="settings-form">
+    <!-- Compte Tuta -->
+    <section class="card">
+      <h2>📧 Compte Tuta</h2>
+      <div class="field">
+        <label for="email">Adresse e-mail Tuta</label>
+        <input type="email" id="email" placeholder="vous@tuta.com" required autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" placeholder="••••••••" required autocomplete="current-password">
+      </div>
+      <div class="field checkbox">
+        <input type="checkbox" id="saveCredentials">
+        <label for="saveCredentials">Sauvegarder les identifiants localement</label>
+      </div>
+      <button id="testBtn" type="button">🔍 Tester la connexion</button>
+      <p id="testStatus" class="status"></p>
+    </section>
+
+    <!-- Planification -->
+    <section class="card">
+      <h2>📅 Planification du rafraîchissement</h2>
+      <div class="field">
+        <label for="mode">Mode de rafraîchissement</label>
+        <select id="mode">
+          <option value="always">Toujours actif</option>
+          <option value="activeHours" selected>Plages actives définies</option>
+          <option value="nightPause">Pause la nuit</option>
+        </select>
+      </div>
+
+      <div class="field" id="activeHoursField">
+        <label for="activeHoursJSON">Plages horaires actives (JSON)</label>
+        <textarea id="activeHoursJSON" rows="4" placeholder='[{"day":"monday","start":"08:00","end":"12:00"}]'></textarea>
+        <small>Format : tableau d'objets {day, start, end}</small>
+      </div>
+
+      <div class="field" id="nightPauseField" style="display:none;">
+        <label>Pause la nuit</label>
+        <div class="row">
+          <input type="time" id="nightStart" value="22:00">
+          <span>à</span>
+          <input type="time" id="nightEnd" value="07:00">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="frequencyNormal">Fréquence normale</label>
+        <select id="frequencyNormal">
+          <option value="1min">Toutes les 1 minute</option>
+          <option value="5min" selected>Toutes les 5 minutes</option>
+          <option value="10min">Toutes les 10 minutes</option>
+          <option value="30min">Toutes les 30 minutes</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="frequencyFast">Fréquence rapide (après nouveau mail)</label>
+        <select id="frequencyFast">
+          <option value="15s">Toutes les 15 secondes</option>
+          <option value="30s" selected>Toutes les 30 secondes</option>
+          <option value="45s">Toutes les 45 secondes</option>
+          <option value="1min">Toutes les 1 minute</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="durationFastMode">Durée du mode rapide</label>
+        <select id="durationFastMode">
+          <option value="1min">1 minute</option>
+          <option value="3min">3 minutes</option>
+          <option value="5min" selected>5 minutes</option>
+          <option value="10min">10 minutes</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Performance -->
+    <section class="card">
+      <h2>🔋 Performance / batterie</h2>
+      <div class="field checkbox">
+        <input type="checkbox" id="batterySaver" checked>
+        <label for="batterySaver">Mode économie (batterie faible)</label>
+      </div>
+      <div class="field checkbox">
+        <input type="checkbox" id="disableRefresh">
+        <label for="disableRefresh">Désactiver complètement le rafraîchissement</label>
+      </div>
+    </section>
+
+    <div class="actions">
+      <button id="saveBtn" type="button">💾 Enregistrer</button>
+      <span id="saveStatus" class="status"></span>
+    </div>
+    
+    <div class="app-info">
+      <p>Version 1.0.0</p>
+      <p class="small">Orbix - Badge de mails Tuta</p>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
